@@ -17,14 +17,12 @@ public Plugin myinfo = {
 	url = "https://github.com/Pintuzoft/OSMapRating"
 }
 
-public void OnPluginStart() {
-    HookEvent ( "map_start", Event_MapStart );
+public void OnPluginStart ( ) {
     HookEvent ( "round_start", Event_RoundStart );
 }
 
-public Action Event_MapStart ( Handle event, const char[] name, bool dontBroadcast ) {
+public void OnMapStart ( ) {
     rounds = 0;
-    return Plugin_Continue;
 }
 
 public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroadcast ) {
