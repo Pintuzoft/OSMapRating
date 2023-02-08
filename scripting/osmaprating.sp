@@ -34,9 +34,9 @@ public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroad
 }
 
 public Action Timer_RoundStart ( Handle timer, any data ) {
-    for ( int client = 1; client <= MaxClients; client++ ) {
-        if ( IsClientInGame ( client ) ) {
-            int player = GetClientOfUserId ( client );
+    for ( int i = 1; i <= MaxClients; i++ ) {
+        if ( IsClientInGame ( i ) ) {
+            int player = GetClientOfUserId ( i );
             //  "1|2|3", "Choose an option:", "OptionChoice" 
             Handle panel = CreatePanel ( );
             SetPanelTitle ( panel, "Rate Current Map:" );
