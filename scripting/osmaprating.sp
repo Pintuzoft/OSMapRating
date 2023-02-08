@@ -28,35 +28,30 @@ public void OnMapStart ( ) {
 public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroadcast ) {
     rounds++;
     if ( rounds == 2 ) {
-        CreateTimer ( 1.0, Timer_RoundStart );
-    }
-    return Plugin_Continue;
-}
-
-public Action Timer_RoundStart ( Handle timer, any data ) {
-    for ( int i = 1; i <= MaxClients; i++ ) {
-        if ( IsClientInGame ( i ) ) {
-            int player = GetClientOfUserId ( i );
-            //  "1|2|3", "Choose an option:", "OptionChoice" 
-            Handle panel = CreatePanel ( );
-            SetPanelTitle ( panel, "Rate Current Map:" );
-            DrawPanelText ( panel, " " );
-            DrawPanelText ( panel, "Rate map between 1 and 5" );
-            DrawPanelText ( panel, " " );
-            DrawPanelItem ( panel, "star" );
-            DrawPanelItem ( panel, "stars" );
-            DrawPanelItem ( panel, "stars" );
-            DrawPanelItem ( panel, "stars" );
-            DrawPanelItem ( panel, "stars" );
-            DrawPanelText ( panel, " " );
-            DrawPanelText ( panel, "Exit" );
-            SendPanelToClient ( panel, player, Panel_MapRating, 5 );
-            CloseHandle ( panel );
+        for ( int i = 1; i <= MaxClients; i++ ) {
+            if ( IsClientInGame ( i ) ) {
+                int player = GetClientOfUserId ( i );
+                //  "1|2|3", "Choose an option:", "OptionChoice" 
+                Handle panel = CreatePanel ( );
+                SetPanelTitle ( panel, "Rate Current Map:" );
+                DrawPanelText ( panel, " " );
+                DrawPanelText ( panel, "Rate map between 1 and 5" );
+                DrawPanelText ( panel, " " );
+                DrawPanelItem ( panel, "star" );
+                DrawPanelItem ( panel, "stars" );
+                DrawPanelItem ( panel, "stars" );
+                DrawPanelItem ( panel, "stars" );
+                DrawPanelItem ( panel, "stars" );
+                DrawPanelText ( panel, " " );
+                DrawPanelText ( panel, "Exit" );
+                SendPanelToClient ( panel, player, Panel_MapRating, 5 );
+                CloseHandle ( panel );
+            }
         }
     }
     return Plugin_Continue;
 }
-  
+ 
 public Panel_MapRating ( Handle menu, MenuAction action, int client, int choice ) {
     choice++;
     if ( choice > 0 && choice < 6 ) {
