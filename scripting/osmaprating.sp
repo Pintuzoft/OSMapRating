@@ -28,7 +28,7 @@ public void OnMapStart ( ) {
 public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroadcast ) {
     rounds++;
     PrintToConsoleAll ( " \x04[OSMapRating]\x01: 0 Round %d", rounds );
-    if ( rounds == 2 ) {
+    //if ( rounds == 2 ) {
         PrintToConsoleAll ( " \x04[OSMapRating]\x01: 1 Showing panel to all players" );
         for ( int i = 1; i <= MaxClients; i++ ) {
             PrintToConsoleAll ( " \x04[OSMapRating]\x01: 2 Checking client %d", i );
@@ -52,7 +52,7 @@ public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroad
             PrintToConsoleAll ( " \x04[OSMapRating]\x01: 4" );
         }
         PrintToConsoleAll ( " \x04[OSMapRating]\x01: 5" );
-    }
+    //}
     PrintToConsoleAll ( " \x04[OSMapRating]\x01: 6" );
     return Plugin_Continue;
 }
