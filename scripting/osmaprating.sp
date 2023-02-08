@@ -34,7 +34,7 @@ public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroad
             PrintToConsoleAll ( " \x04[OSMapRating]\x01: 2 Checking client %d", i );
             if ( IsClientInGame ( i ) ) {
                 PrintToConsoleAll ( " \x04[OSMapRating]\x01: 3 Client %d is in game", i );
-                int player = GetClientOfUserId ( i );
+                //int player = GetClientOfUserId ( i );
                 //  "1|2|3", "Choose an option:", "OptionChoice" 
                 Handle panel = CreatePanel ( );
                 SetPanelTitle ( panel, "Rate Current Map:" );
@@ -48,7 +48,7 @@ public Action Event_RoundStart ( Handle event, const char[] name, bool dontBroad
                 DrawPanelItem ( panel, "stars" );
                 DrawPanelText ( panel, " " );
                 DrawPanelText ( panel, "Exit" );
-                SendPanelToClient ( panel, player, Panel_MapRating, 5 );
+                SendPanelToClient ( panel, i, Panel_MapRating, 5 );
                 CloseHandle ( panel );
             }
             PrintToConsoleAll ( " \x04[OSMapRating]\x01: 4" );
